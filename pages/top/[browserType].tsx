@@ -13,7 +13,7 @@ const Demo: NextPage = () => {
   }
 
   return (
-    <Layout title="Welcome to Our Page">
+    <Layout title="Welcome to My Page">
       <p className='text-xl'>{`Hello ${browserType} User`}</p>
     </Layout>
   )
