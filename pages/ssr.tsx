@@ -10,7 +10,7 @@ import { Notice, Task } from '../types/types'
 import { supabase } from '../utils/supabase'
 
 export const getServerSideProps: GetServerSideProps = async () => {
-   const { data: tasks } = await supabase
+  const { data: tasks } = await supabase
     .from('todos')
     .select('*')
     .order('created_at', { ascending: true })
@@ -18,7 +18,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     .from('notices')
     .select('*')
     .order('created_at', { ascending: true })
-  return{props: {tasks, notices}}
+  return { props: { tasks, notices } }
 }
 
 type StaticProps = {
@@ -37,27 +37,26 @@ const Ssr: NextPage<StaticProps> = ({ tasks, notices }) => {
   return (
     <Layout title="SSR">
       <div className="grid grid-cols-2 gap-40">
-
-      <ul>
-        {tasks.map((task) => {
-          return (
-            <li className='my-3' key={task.id}>
-              <p className="text-lg text-blue-500">{task.title}</p>
-            </li>
-          )
-        })}
-      </ul>
-      <ul>
-        {notices.map((notice) => {
-          return (
-            <li className="my-3" key={notice.id}>
-              <p className="text-lg text-blue-500">{notice.content}</p>
-            </li>
-          )
-        })}
-      </ul>
-        </div>
-        <BackButton />
+        <ul>
+          {tasks.map((task) => {
+            return (
+              <li className="my-3" key={task.id}>
+                <p className="text-lg text-blue-500">{task.title}</p>
+              </li>
+            )
+          })}
+        </ul>
+        <ul>
+          {notices.map((notice) => {
+            return (
+              <li className="my-3" key={notice.id}>
+                <p className="text-lg text-blue-500">{notice.content}</p>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+      <BackButton />
       <Link href="/home" prefetch={false}>
         <a className="my-3 text-xl text-indigo-500 bg-black py-2 px-3 hover:text-red-500 rounded">
           Go Home
@@ -66,7 +65,7 @@ const Ssr: NextPage<StaticProps> = ({ tasks, notices }) => {
       <LogoutIcon
         className="my-5 h-6 w-6 cursor-pointerbtext-blue-500"
         onClick={signOut}
-        />
+      />
     </Layout>
   )
 }

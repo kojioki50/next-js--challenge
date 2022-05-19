@@ -6,15 +6,15 @@ const Demo: NextPage = () => {
   const router = useRouter()
   const browserType = router.query.browserType
 
-  if (typeof window !== "undefined") {
+  if (typeof window !== 'undefined') {
     setTimeout(() => {
-      window.location.href = "/dashboard";
+      window.location.href = '/dashboard'
     }, 2000)
   }
 
   return (
     <Layout title="Welcome to My Page">
-      <p className='text-xl'>{`Hello ${browserType} User`}</p>
+      <p className="text-xl">{`Hello ${browserType} User`}</p>
     </Layout>
   )
 }

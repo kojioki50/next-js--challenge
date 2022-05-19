@@ -9,7 +9,7 @@ import { Notice, Task } from '../types/types'
 import { supabase } from '../utils/supabase'
 
 export const getStaticProps: GetStaticProps = async () => {
-   console.log('getStaticProps/ssg invoked')
+  console.log('getStaticProps/ssg invoked')
   const { data: tasks } = await supabase
     .from('todos')
     .select('*')

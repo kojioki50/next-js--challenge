@@ -19,25 +19,24 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { push, pathname } = useRouter()
   const RoutePath = async () => {
     const user = supabase.auth.user()
-    if (user && pathname === '/') {
+    if (user && pathname === '/dashboard') {
       push('/home')
-    }
-    else if (!user && pathname !== '/dashboard') {
+    } else if (!user && pathname !== '/dashboard') {
       await push('/top')
     }
   }
   supabase.auth.onAuthStateChange((event, _) => {
-    if (event === 'SIGNED_IN' && pathname === '/') {
+    if (event === 'SIGNED_IN' && pathname === '/dashboard') {
       push('/home')
     }
     if (event === 'SIGNED_OUT') {
-      push('/')
+      push('/top')
     }
   })
   useEffect(() => {
     RoutePath()
   }, [])
-  
+
   return (
     <QueryClientProvider client={queryClient}>
       <Component {...pageProps} />

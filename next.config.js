@@ -12,14 +12,14 @@ module.exports = nextConfig
 //    assetPrefix: '/top'
 // }
 
-module.exports = {
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/top',
-        permanent: false
-      }
-    ]
-  }
-}
+// module.exports = {
+//   async redirects() {
+//     return [
+//       {
+//         source: '/',
+//         destination: '/top',
+//         permanent: false
+//       }
+//     ]
+//   }
+// }
