@@ -23,7 +23,7 @@ const Auth: NextPage = () => {
   }
 
   return (
-    <Layout title={'Home'}>
+    <Layout title={'Dashboard'}>
       {'Please Log in or Sign up'}
       <form onSubmit={handleSubmit}>
         <div className="my-5 text-center">

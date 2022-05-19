@@ -21,8 +21,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     const user = supabase.auth.user()
     if (user && pathname === '/') {
       push('/home')
-    } else if (!user && pathname !== '/') {
-      await push('/')
+    }
+    else if (!user && pathname !== '/dashboard') {
+      await push('/top')
     }
   }
   supabase.auth.onAuthStateChange((event, _) => {
